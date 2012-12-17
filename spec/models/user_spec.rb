@@ -120,6 +120,10 @@ describe "has_password? method" do
 
 describe "authenticate method" do
 
+      before(:each) do
+          @user = User.create!(@attr)
+        end
+
       it "should return nil on email/password mismatch" do
         wrong_password_user = User.authenticate(@attr[:email], "wrongpass")
         wrong_password_user.should be_nil
