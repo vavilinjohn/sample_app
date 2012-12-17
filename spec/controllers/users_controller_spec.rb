@@ -11,7 +11,6 @@ def show
   end
 
  describe "GET 'show'" do
->>>>>>> modeling-users
 
     before(:each) do
       @user = Factory(:user)
@@ -27,7 +26,6 @@ def show
       assigns(:user).should == @user
     end
 
-<<<<<<< HEAD
      it "should have the right title" do
           get :show, :id => @user
           response.should have_selector("title", :content => @user.name)
@@ -42,7 +40,7 @@ def show
           get :show, :id => @user
           response.should have_selector("h1>img", :class => "gravatar")
         end
-=======
+
     it "should have the right title" do
       get :show, :id => @user
       response.should have_selector("title", :content => @user.name)
@@ -57,7 +55,6 @@ def show
       get :show, :id => @user
       response.should have_selector("h1>img", :class => "gravatar")
     end
->>>>>>> modeling-users
   end
 
   describe "GET 'new'" do

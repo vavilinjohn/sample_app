@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-<<<<<<< HEAD
+
   attr_accessor :password
   attr_accessible :name, :email, :password, :password_confirmation
 
@@ -17,7 +17,6 @@ class User < ActiveRecord::Base
   before_save :encrypt_password
 
   # Return true if the user's password matches the submitted password.
-=======
     attr_accessor :password
     attr_accessible :name, :email, :password, :password_confirmation
 
@@ -40,7 +39,7 @@ class User < ActiveRecord::Base
     # submitted_password.
   end
 
->>>>>>> modeling-users
+
   def has_password?(submitted_password)
     encrypted_password == encrypt(submitted_password)
   end
@@ -50,7 +49,7 @@ class User < ActiveRecord::Base
     return nil  if user.nil?
     return user if user.has_password?(submitted_password)
   end
-<<<<<<< HEAD
+
 
   private
 
@@ -70,23 +69,4 @@ class User < ActiveRecord::Base
         def secure_hash(string)
           Digest::SHA2.hexdigest(string)
         end
-=======
-        private
-
-    def encrypt_password
-      self.encrypted_password = encrypt(password)
     end
-
-    def encrypt(string)
-      string # Only a temporary implementation!
-    end
-
-    def make_salt
-      secure_hash("#{Time.now.utc}--#{password}")
-    end
-
-    def secure_hash(string)
-      Digest::SHA2.hexdigest(string)
-    end
->>>>>>> modeling-users
-end

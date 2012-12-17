@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-<<<<<<< HEAD
+
 def show
     @user = User.find(params[:id])
      @title = @user.name
@@ -8,7 +8,6 @@ def show
   def new
     @title = "Sign up"
   end
-=======
 
     def show
         @user = User.find(params[:id])
@@ -19,5 +18,4 @@ def show
         @title = "Sign up"
     end
 
->>>>>>> modeling-users
 end
