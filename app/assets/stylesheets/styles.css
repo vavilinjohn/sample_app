@@ -145,6 +145,13 @@ td.sidebar {
 }
 
 .profile img.gravatar {
+<<<<<<< HEAD
   border: 1px solid #999;
   margin-bottom: -15px;
+=======
+  margin-bottom: -15px;
+  -moz-box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+>>>>>>> modeling-users
 }

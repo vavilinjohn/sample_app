@@ -103,10 +103,13 @@ describe "password encryption" do
 
 describe "has_password? method" do
 
+<<<<<<< HEAD
       before(:each) do
         @user = User.create!(@attr)
       end
 
+=======
+>>>>>>> modeling-users
       it "should be true if the passwords match" do
         @user.has_password?(@attr[:password]).should be_true
       end
