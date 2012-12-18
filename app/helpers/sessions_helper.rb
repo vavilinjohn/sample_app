@@ -1,29 +1,33 @@
 module SessionsHelper
 
-def sign_in(user)
+  def sign_in(user)
     cookies.permanent.signed[:remember_token] = [user.id, user.salt]
     @current_user = user
   end
 
-def get_current_user
+  def get_current_user
     @current_user ||= user_from_remember_token
   end
 
-def signed_in?
+  def signed_in?
     !get_current_user.nil?
   end
 
- def sign_out
+  def sign_out
     cookies.delete(:remember_token)
     @current_user = nil
   end
 
-def deny_access
+  def authenticate
+    deny_access unless signed_in?
+  end
+
+  def deny_access
     store_location
     redirect_to signin_path, :notice => "Please sign in to access this page."
   end
 
-def get_current_user?(user)
+  def get_current_user?(user)
     user == get_current_user
   end
 
@@ -32,7 +36,7 @@ def get_current_user?(user)
     clear_return_to
   end
 
- private
+  private
 
     def user_from_remember_token
       User.authenticate_with_salt(*remember_token)
